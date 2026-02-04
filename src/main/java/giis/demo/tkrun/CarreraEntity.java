@@ -14,17 +14,20 @@ public class CarreraEntity {
 	private String inicio; //las fechas son string (vienen de sqlite)
 	private String fin;
 	private String fecha;
+	private int cuota;
 	private String descr;
 
 	public String getId() { return this.id; }
 	public String getInicio() { return this.inicio; }
 	public String getFin() { return this.fin; }
 	public String getFecha() { return this.fecha; }
+	public int getCuota() { return this.cuota; }
 	public String getDescr() { return this.descr; }
 	public void setId(String value) { this.id = value; }
 	public void setInicio(String value) { this.inicio = value; }
 	public void setFin(String value) { this.fin = value; }
 	public void setFecha(String value) { this.fecha = value; }
+	public void setCuota(int value) { this.cuota = value; }
 	public void setDescr(String value) { this.descr = value; }
 	// NOTA: se pueden generar getters y setters de forma automatica usando lombok:  
 	// https://www.sitepoint.com/declutter-pojos-with-lombok-tutorial/

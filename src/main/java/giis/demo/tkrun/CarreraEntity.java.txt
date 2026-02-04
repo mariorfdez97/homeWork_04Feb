@@ -15,5 +15,6 @@ public class CarreraEntity {
 	private String inicio; //las fechas son string (vienen de sqlite)
 	private String fin;
 	private String fecha;
+	private int cuota;
 	private String descr;
 }

@@ -61,6 +61,15 @@ public class SwingMain {
 		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
 		frame.getContentPane().add(btnEjecutarTkrun);
 		
+		JButton btnInscribirAtleta = new JButton("Inscribir Atleta en Carrera (Homework)");
+		btnInscribirAtleta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				InscripcionController controller = new InscripcionController(new InscripcionModel(), new CarrerasModel(), new InscripcionView());
+				controller.initController();
+			}
+		});
+		frame.getContentPane().add(btnInscribirAtleta);
+		
 			
 		JButton btnInicializarBaseDeDatos = new JButton("Inicializar Base de Datos en Blanco");
 		btnInicializarBaseDeDatos.addActionListener(new ActionListener() { //NOSONAR codigo autogenerado
