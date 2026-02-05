@@ -63,4 +63,25 @@ public class InscripcionModel {
 		String sql = "SELECT idCarrera, dniAtleta, fechaInscripcion, cuota, estado FROM Inscripciones WHERE idCarrera = ?";
 		return db.executeQueryPojo(InscripcionEntity.class, sql, idCarrera);
 	}
+
+	/**
+	 * Gets a list of all registered athletes across all competitions.
+	 * The information includes competition details, athlete details, and registration details.
+	 */
+	public List<RegisteredAthleteDisplayDTO> getRegisteredAthletesForAllCompetitions() {
+		String sql = "SELECT " +
+					 "i.idCarrera, " +
+					 "c.descr AS nombreCarrera, " +
+					 "i.dniAtleta, " +
+					 "a.nombre AS nombreAtleta, " +
+					 "a.apellidos AS apellidoAtleta, " + // Corrected column name
+					 "i.fechaInscripcion, " +
+					 "i.cuota, " +
+					 "i.estado AS estadoInscripcion " +
+					 "FROM Inscripciones i " +
+					 "JOIN Carreras c ON i.idCarrera = c.id " +
+					 "JOIN Atletas a ON i.dniAtleta = a.dni " +
+					 "ORDER BY i.idCarrera, a.apellidos, a.nombre";
+		return db.executeQueryPojo(RegisteredAthleteDisplayDTO.class, sql);
+	}
 }

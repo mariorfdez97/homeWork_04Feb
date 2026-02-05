@@ -68,10 +68,20 @@ public class SwingMain {
 				controller.initController();
 			}
 		});
-		frame.getContentPane().add(btnInscribirAtleta);
-		
-			
-		JButton btnInicializarBaseDeDatos = new JButton("Inicializar Base de Datos en Blanco");
+				frame.getContentPane().add(btnInscribirAtleta);
+				
+				JButton btnVerAtletasRegistrados = new JButton("Ver Atletas Registrados");
+				btnVerAtletasRegistrados.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						InscripcionModel model = new InscripcionModel();
+						RegisteredAthletesView view = new RegisteredAthletesView();
+						RegisteredAthletesController controller = new RegisteredAthletesController(model, view);
+						controller.initController();
+					}
+				});
+				frame.getContentPane().add(btnVerAtletasRegistrados);
+					
+				JButton btnInicializarBaseDeDatos = new JButton("Inicializar Base de Datos en Blanco");
 		btnInicializarBaseDeDatos.addActionListener(new ActionListener() { //NOSONAR codigo autogenerado
 			public void actionPerformed(ActionEvent e) {
 				Database db=new Database();
